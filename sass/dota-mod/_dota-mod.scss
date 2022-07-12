@@ -1,0 +1,80 @@
+/* -------------------------------------------------
+    Dota styles
+   ------------------------------------------------- */
+
+$duration: 300ms;
+
+.-dota- {
+
+
+//  Ring
+// -------------------------------------------------
+
+.wheel-menu--ring {
+  border: none;
+
+  &:after {
+    content: '';
+    background: url(../img/wheel.png) left top no-repeat;
+    width: 208px;
+    height: 208px;
+    position: absolute;
+    left: -33px;
+    top: -18px;
+  }
+}
+
+//  Pointer
+// -------------------------------------------------
+
+.wheel-menu--pointer {
+  border: none;
+  background: url(../img/pointer.png) left top no-repeat;
+  width: 33px;
+  height: 66px;
+  position: absolute;
+}
+
+//  Cursor
+// -------------------------------------------------
+   
+.wheel-menu--cursor {
+  border: none;
+  background: url(../img/cursor.png) left top no-repeat;
+  width: 60px;
+  height: 63px;
+}
+
+
+//  Item
+// -------------------------------------------------
+
+.wheel-menu--item {
+  background: none;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 24px;
+  color: #fff;
+  text-shadow: 0 1px 4px #000;
+  line-height: 1;
+  padding: 0;
+
+  &.active {
+    background: none;
+    font-size: 36px;
+  }
+
+
+}
+
+.-wheel-menu-moving- & {
+  .wheel-menu--item {
+    &.active {
+      opacity: 1;
+
+      @include transition(none);
+    }
+  }
+}
+
+}
+

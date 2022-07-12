@@ -1,0 +1,39 @@
+@import "imports";
+
+/* -------------------------------------------------
+    Wheel menu ring
+   ------------------------------------------------- */
+
+$radius: 100px;
+
+.wheel-menu--ring {
+  box-sizing: border-box;
+  opacity: 0;
+  width: $radius;
+  height: $radius;
+  border-radius: 50%;
+  border: 1px gold solid;
+  position: absolute;
+
+  @include transform(scale(.1));
+
+  @include transition(top 0s $duration, left 0s $duration, opacity $duration .15s, transform $duration .15s);
+
+  &.active {
+    opacity: .6;
+    @include transform(scale(1));
+
+    @include transition(top 0s 0s, left 0s 0s, opacity $duration 0s, transform $duration 0s);
+
+    .-item-activated- & {
+      opacity: 1;
+
+    }
+  }
+}
+
+.-wheel-menu-moving- {
+  .wheel-menu--ring  {
+    @include transition(opacity .3s);
+  }
+}

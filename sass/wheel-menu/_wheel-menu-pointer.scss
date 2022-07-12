@@ -1,0 +1,30 @@
+@import "../bourbon/bourbon";
+
+/* -------------------------------------------------
+    Wheel menu cursor
+   ------------------------------------------------- */
+
+$duration: .3s;
+
+.wheel-menu--pointer{
+  background: #f4777f;
+  width: 8px;
+  height: 2px;
+  position: absolute;
+  left: -1000px;
+  top: -1000px;
+  
+  opacity: 0;
+  
+  @include transition(opacity $duration, transform $duration);
+
+  &.active {
+    opacity: 1;
+  }
+}
+
+.-wheel-menu-moving- {
+  .wheel-menu--pointer {
+    @include transition(opacity $duration);
+  }
+}

@@ -1,88 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>XXXXXXXXXXXx</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
-<body>
-        <div>
-        <button id="advice" class="btn">Advice</button>
-        <div class="background">
-                <img src="./assets/background2"
-                id="background"
-                width="100%"
-                style="padding:0; margin:0">   
-            </div>
-            <div>
-                <video id="face">
-                    <source src="assets/Aidar"/> 
-                </video>
-            </div>
-        <div class="audio-container">
-            <audio id="phrase1" src="assets/phrase1" type="audio/wav">
-            <audio id="phrase2" src="assets/phrase2" type="audio/wav">
-            <audio id="phrase3" src="assets/phrase3" type="audio/wav">
-            <audio id="phrase4" src="assets/phrase4" type="audio/wav">
-            <audio id="phrase5" src="assets/phrase5" type="audio/wav">
-            </div>
-        </div>
-</body>
-<script>
-myPhrases = [ 'phrase1', 'phrase2', 'phrase3', 'phrase4', 'phrase5' ]
-function randomSound() {
-    var index = Math.floor(Math.random() * 1000) % myPhrases.length;
-    var id = myPhrases[index];
-    var audioElement = document.getElementById(id);
-    audioElement.play();
-}
-
-//    var audio_files = [
-// "./assets/phrase1.mp3",
-// "./assets/phrase2.mp3",
-// "./assets/phrase3.mp3",
-// "./assets/phrase4.mp3",
-// "./assets/phrase5.mp3",
-// // "phrase6.mp3",
-// // "phrase7.mp3",
-// // "phrase8.mp3",
-// // "phrase9.mp3",
-// // "phrase10.mp3",
-// ]
-
-// var random_file = audio_files[Math.floor(Math.random() * audio_files.length)];
-// var audio = new Audio(random_file);
-
-// audio.play();
-
-// audio.addEventListener('ended', function(){
-// audio.play();
-// }
-const advice = document.getElementById("advice");
-    advice.addEventListener("click", Start)
-    const Face = document.getElementById("face");
-    function playVideo(){
-        if(Face.paused){
-            Face.play();
-        } 
-        else {
-            Face.pause();
-        }
-    }
-    function Start () { 
-        playVideo()
-        randomSound()
-    }
-    // function playPause(){
-    //     if(Audio.paused){
-    //         audio.play();
-    //         BtnAudio.innerHTML = '<i style="color:white"></i>';
-    //     }
-    //     else {
-    //     audio.pause();
-    //     BtnAudio.innerHTML = '<i style="color:white" fa-5x"></i>';
-    //     }
-    // }
-</script>
+<!doctype html>
+<html lang="en-US">
+    <head>
+        <meta charset="UTF-8">
+        <title>MotivatorOnline</title>
+        <link rel="stylesheet" href="css/style.css"/>
+        <link rel="stylesheet" href="css/wheel-menu.style.css"/>
+        <link href='http://fonts.googleapis.com/css?family=Roboto:100' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:600' rel='stylesheet' type='text/css'>
+    </head>
+    <body>
+        <h1 class="header" style="color:black; background-color: rgba(255,255,255,0.5); font-size: 60px; font-weight: bold;">
+            Click and hold to choose quote
+        </h1>
+        <script type="text/javascript" src="js/utils.js"></script>
+        <script type="text/javascript" src="js/wheel-menu.js"></script>
+        <script type="text/javascript" src="js/chat.js"></script>
+        <script type="text/javascript" src="js/init.js"></script>
+    </body>
 </html>

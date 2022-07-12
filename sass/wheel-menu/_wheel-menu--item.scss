@@ -1,0 +1,63 @@
+@import "imports";
+
+/* -------------------------------------------------
+    Wheel menu item
+   ------------------------------------------------- */
+
+.wheel-menu--items {
+  position: absolute;
+
+  @include transform(scale(.3));
+  @include transition(transform $duration .0s);
+
+  &.active {
+    @include transform(scale(1));
+    @include transition(transform $duration .1s);
+  }
+
+  z-index: 100;
+}
+
+.wheel-menu--item {
+  position: absolute;
+  color: #333;
+  font-family: Tahoma, sans-serif;
+  font-size: 14px;
+  text-align: center;
+  opacity: 0;
+  border-radius: 2px;
+  padding: 4px 8px;
+  background: rgba(0, 0, 0, 0.10);
+  white-space: nowrap;
+
+  @include transform(scale(.1));
+
+  @include transition(transform $duration, opacity $duration);
+
+  .active & {
+    opacity: .7;
+
+    @include transition(transform $duration, opacity $duration);
+
+    @include transform(scale(1));
+
+    @for $i from 1 through 8 {
+      &:nth-child(#{$i}n) {
+        @include transition-delay(40ms * $i);
+      }
+    }
+
+    .-wheel-menu-moving- & {
+      @include transition-delay(0s);
+
+    }
+  }
+
+  //  Active state
+  // -------------------------------------------------
+
+  &.active {
+    background: #ff9ca6;
+  }
+}
+
