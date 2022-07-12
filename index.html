@@ -7,73 +7,82 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-    <main>
         <div>
-        <button class="btn"><i class="fa fa-question" onclick="playAudio(), playVideo()"></i>Advice</button>
+        <button id="advice" class="btn">Advice</button>
         <div class="background">
                 <img src="./assets/background2"
                 id="background"
                 width="100%"
                 style="padding:0; margin:0">   
             </div>
-            <div class="audio-container">
-                <audio src="assets/phrase1.mp3" id="audio"> </audio>
-            <div class="playpause" id="playpause" onclick="playPause()">
-                <i style="color: white;" class="fa fa-play-circle fa-5x"></i>
+            <div>
+                <video id="face">
+                    <source src="assets/Aidar"/> 
+                </video>
+            </div>
+        <div class="audio-container">
+            <audio id="phrase1" src="assets/phrase1" type="audio/wav">
+            <audio id="phrase2" src="assets/phrase2" type="audio/wav">
+            <audio id="phrase3" src="assets/phrase3" type="audio/wav">
+            <audio id="phrase4" src="assets/phrase4" type="audio/wav">
+            <audio id="phrase5" src="assets/phrase5" type="audio/wav">
             </div>
         </div>
-        </div>
-    </main>
-    
-    <script src="app.js"></script>
 </body>
 <script>
-   
-   var audio_files = [
-"phrase1.mp3",
-"phrase2.mp3",
-"phrase3.mp3",
-"phrase4.mp3",
-"phrase5.mp3",
-// "phrase6.mp3",
-// "phrase7.mp3",
-// "phrase8.mp3",
-// "phrase9.mp3",
-// "phrase10.mp3",
-]
+myPhrases = [ 'phrase1', 'phrase2', 'phrase3', 'phrase4', 'phrase5' ]
+function randomSound() {
+    var index = Math.floor(Math.random() * 1000) % myPhrases.length;
+    var id = myPhrases[index];
+    var audioElement = document.getElementById(id);
+    audioElement.play();
+}
 
-var random_file = audio_files[Math.floor(Math.random() * audio_files.length)];
-var audio = new Audio(random_file);
+//    var audio_files = [
+// "./assets/phrase1.mp3",
+// "./assets/phrase2.mp3",
+// "./assets/phrase3.mp3",
+// "./assets/phrase4.mp3",
+// "./assets/phrase5.mp3",
+// // "phrase6.mp3",
+// // "phrase7.mp3",
+// // "phrase8.mp3",
+// // "phrase9.mp3",
+// // "phrase10.mp3",
+// ]
+
+// var random_file = audio_files[Math.floor(Math.random() * audio_files.length)];
+// var audio = new Audio(random_file);
 
 // audio.play();
 
 // audio.addEventListener('ended', function(){
 // audio.play();
 // }
-    
-    const BtnAudio = document.getElementById("playpause");
-    const Audio = document.getElementById("audio"); 
-    const buttonColor = document.getElementById("btn-change-background");
-    const videoBackground = document.getElementById("video-background");
-
+const advice = document.getElementById("advice");
+    advice.addEventListener("click", Start)
+    const Face = document.getElementById("face");
     function playVideo(){
-        if(videoBackground.paused){
-            videoBackground.play();
+        if(Face.paused){
+            Face.play();
         } 
         else {
-            videoBackground.pause();
+            Face.pause();
         }
     }
-
-    function playPause(){
-        if(Audio.paused){
-            audio.play();
-            BtnAudio.innerHTML = '<i style="color:white;" class="fa fa-pause-circle fa-5x"></i>';
-        }
-        else {
-        audio.pause();
-        BtnAudio.innerHTML = '<i style="color:white;" class="fa fa-play-circle fa-5x"></i>';
-        }
+    function Start () { 
+        playVideo()
+        randomSound()
     }
+    // function playPause(){
+    //     if(Audio.paused){
+    //         audio.play();
+    //         BtnAudio.innerHTML = '<i style="color:white"></i>';
+    //     }
+    //     else {
+    //     audio.pause();
+    //     BtnAudio.innerHTML = '<i style="color:white" fa-5x"></i>';
+    //     }
+    // }
 </script>
 </html>
