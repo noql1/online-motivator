@@ -5,6 +5,7 @@ window.onload = function () {
   var phrase3 = new Audio("audios/phrase3.mp3");
   var phrase4 = new Audio("audios/phrase4.mp3");
   var phrase5 = new Audio("audios/phrase5.mp3");
+
   new WheelMenu("html", {
     size: 170,
     classes: "-dota-",

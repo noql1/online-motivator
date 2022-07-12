@@ -4,6 +4,7 @@
       '<img class="chat-msg--image" src="https://gitlab.com/uploads/-/system/user/avatar/2116601/avatar.png">' +
       '<div class="chat-msg--to-whom">[MENTOR] </div>' +
       '<div class="chat-msg--name">{{name}}</div>:' +
+      +"" +
       '<div class="chat-msg--text">{{text}}</div>',
     $body = document.querySelector("body"),
     deleteMessageDelay = 10000,
